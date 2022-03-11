@@ -1,16 +1,21 @@
-# `gcr.io/paketo-buildpacks/pipeline-builder-canary`
-
-The Paketo Pipeline Build Canary Buildpack is a Cloud Native Buildpack that does nothing. It's primary purpose is to function as a validation for changes being made to the pipeline-builder.
+The Paketo Quarkus Buildpack is a Cloud Native Buildpack
+that sets environment variables for maven/native-image buildpacks
+when building Quarkus app.
 
 ## Behavior
 
-This buildpack will participate all the following conditions are met
+This buildpack will participate if all of the following conditions are met
 
-* always
+* The project is Quarkus maven project
+* None of the following envvars is explicitly set:
+  * `BP_MAVEN_BUILD_ARGUMENTS`
+  * `BP_MAVEN_BUILT_ARTIFACT`
+  * `BP_NATIVE_IMAGE_BUILD_ARGUMENTS_FILE`
+  * `BP_NATIVE_IMAGE_BUILT_ARTIFACT`
 
 The buildpack will do the following:
 
-* nothing
+* Sets required `BP_MAVEN_*` and `BP_NATIVE_IMAGE_BUILD_*` environment variables.
 
 ## License
 

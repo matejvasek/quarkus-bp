@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package canary_test
+package quarkus_test
 
 import (
 	"testing"
@@ -24,7 +24,7 @@ import (
 )
 
 func TestUnit(t *testing.T) {
-	suite := spec.New("procfile", spec.Report(report.Terminal{}))
+	suite := spec.New("quarkus", spec.Report(report.Terminal{}))
 	suite("Build", testBuild)
 	suite("Detect", testDetect)
 	suite.Run(t)

@@ -15,34 +15,27 @@
 api = "0.6"
 
 [buildpack]
-  description = "A Cloud Native Buildpack that provides/does nothing. For testing only."
-  homepage = "https://github.com/paketo-buildpacks/pipeline-builder-canary"
-  id = "paketo-buildpacks/pipeline-builder-canary"
-  keywords = ["nothing"]
-  name = "Paketo Pipeline Builder Canary Buildpack"
+  description = "A Cloud Native Buildpack that provides/does Quarkus."
+  homepage = "https://example.com/"
+  id = "paketo-buildpacks/quarkus"
+  keywords = ["quarkus"]
+  name = "Paketo Quarkus Buildpack"
   version = "{{.version}}"
 
   [[buildpack.licenses]]
     type = "Apache-2.0"
-    uri = "https://github.com/paketo-buildpacks/pipeline-builder-canary/blob/main/LICENSE"
+    uri = "https://github.com/paketo-buildpacks/quarkus/blob/main/LICENSE"
 
 [metadata]
   include-files = ["LICENSE", "NOTICE", "README.md", "bin/build", "bin/detect", "bin/main", "buildpack.toml"]
   pre-package = "scripts/build.sh"
 
-  [[metadata.dependencies]]
-    cpes = ["cpe:2.3:a:apache:maven:3.8.4:*:*:*:*:*:*:*"]
-    id = "maven"
-    name = "Apache Maven"
-    purl = "pkg:generic/apache-maven@3.8.4"
-    sha256 = "2cdc9c519427bb20fdc25bef5a9063b790e4abd930e7b14b4e9f4863d6f9f13c"
-    stacks = ["io.buildpacks.stacks.bionic", "io.paketo.stacks.tiny", "*"]
-    uri = "https://repo1.maven.org/maven2/org/apache/maven/apache-maven/3.8.4/apache-maven-3.8.4-bin.tar.gz"
-    version = "3.8.4"
-
-    [[metadata.dependencies.licenses]]
-      type = "Apache-2.0"
-      uri = "https://www.apache.org/licenses/"
+  [[metadata.configurations]]
+    build = true
+    default = "pom.xml"
+    description = "the location of the main pom.xml file, relative to the application root"
+    detect = true
+    name = "BP_MAVEN_POM_FILE"
 
 [[stacks]]
   id = "io.buildpacks.stacks.bionic"

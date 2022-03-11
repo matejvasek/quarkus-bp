@@ -17,15 +17,15 @@
 package main
 
 import (
+	"github.com/matejvasek/quarkus-bp/quarkus"
 	"github.com/paketo-buildpacks/libpak"
 	"github.com/paketo-buildpacks/libpak/bard"
-	"github.com/paketo-buildpacks/pipeline-builder-canary/canary"
 	"os"
 )
 
 func main() {
 	libpak.Main(
-		canary.Detect{},
-		canary.Build{Logger: bard.NewLogger(os.Stdout)},
+		quarkus.Detect{Logger: bard.NewLogger(os.Stdout)},
+		quarkus.Build{Logger: bard.NewLogger(os.Stdout)},
 	)
 }

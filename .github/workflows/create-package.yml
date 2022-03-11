@@ -164,7 +164,7 @@ jobs:
                     --format "${FORMAT}"
                 fi
               env:
-                PACKAGE: gcr.io/paketo-buildpacks/pipeline-builder-canary
+                PACKAGE: gcr.io/paketo-buildpacks/pipeline-builder-quarkus
                 PUBLISH: "true"
                 VERSION: ${{ steps.version.outputs.version }}
                 VERSION_MAJOR: ${{ steps.version.outputs.version-major }}
@@ -194,7 +194,7 @@ jobs:
             - if: ${{ true }}
               uses: docker://ghcr.io/buildpacks/actions/registry/request-add-entry:4.0.1
               with:
-                address: gcr.io/paketo-buildpacks/pipeline-builder-canary@${{ steps.package.outputs.digest }}
-                id: paketo-buildpacks/pipeline-builder-canary
+                address: gcr.io/paketo-buildpacks/pipeline-builder-quarkus@${{ steps.package.outputs.digest }}
+                id: paketo-buildpacks/pipeline-builder-quarkus
                 token: ${{ secrets.JAVA_GITHUB_TOKEN }}
                 version: ${{ steps.version.outputs.version }}

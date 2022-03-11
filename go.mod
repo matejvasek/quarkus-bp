@@ -1,4 +1,4 @@
-module github.com/paketo-buildpacks/pipeline-builder-canary
+module github.com/matejvasek/quarkus-bp
 
 go 1.16
 
