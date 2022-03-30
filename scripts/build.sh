@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-GOOS="linux" go build -ldflags='-s -w' -o bin/main github.com/paketo-buildpacks/pipeline-builder-canary/cmd/main
+GOOS="linux" go build -ldflags='-s -w' -o bin/main github.com/matejvasek/quarkus-bp/cmd/main
 
 if [ "${STRIP:-false}" != "false" ]; then
   strip bin/main
