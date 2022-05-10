@@ -37,6 +37,9 @@ func (b Build) Build(context libcnb.BuildContext) (libcnb.BuildResult, error) {
 	}
 
 	result.Layers = append(result.Layers, &quarkusEnvVarLayer{isNativeBuild: isNativeBuild})
+	for _, s := range []string{"lib", "quarkus-run.jar", "app", "quarkus"} {
+		result.Slices = append(result.Slices, libcnb.Slice{Paths: []string{s}})
+	}
 
 	return result, nil
 }
